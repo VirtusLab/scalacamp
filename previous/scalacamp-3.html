@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ScalaCamp</title>
+    <meta charset="utf-8">
+    <script src="../js/holder.js"></script>
+
+    <link rel="icon" href="../img/favicon-32.png" type="image/png">
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="../css/main.less" rel="stylesheet/less" type="text/css">
+    <script src="../js/less-1.3.3.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="container">
+
+<div class="navbar">
+    <div class="navbar-inner">
+        <span class="brand">Edycje</span>
+        <ul class="nav">
+            <li><a href="../index.html">Bieżący event</a></li>
+            <li><a href="scalacamp-4.html">ScalaCamp #4 - 28.11.2013</a></li>
+            <li class="active"><a href="#">Scalacamp #3 - 18.05.2013</a></li>
+            <li><a href="scalacamp-2.html">Scalacamp #2 - 20.03.2013</a></li>
+            <li><a href="scalacamp-1.html">Scalacamp #1 - 23.01.2013</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="dark row">
+
+<div id=agenda class="span12">
+    <div class="inside">
+        <h2>Agenda - ScalaCamp #3, 18.05.2013</h2>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Godzina</th>
+                <th>Temat</th>
+                <th>Prelegent</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><h5>16:00 - 16:30</h5></td>
+                <td>
+                    <h4>Discussion panel - Future of Scala</h4>
+
+                    <p>
+                        We will freely discusss interesting aspects of future Scala features and use cases. Prepare to
+                        ask questions too :).
+                    </p>
+
+                </td>
+                <td>
+                    <h5>Grzegorz&nbsp;Kossakowski</h5>
+                    <h5>Vojin&nbsp;Jovanovic</h5>
+                    <h5>Piotr&nbsp;Gabryanczyk</h5>
+
+                    <p>and others</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="column-short"><h5>16:30 - 17:00</h5></td>
+                <td>
+                    <h4>Scalac / Features of Java 8 used by Scala 2.11+</h4>
+                </td>
+                <td class="column-short"><h5>Grzegorz&nbsp;Kossakowski</h5></td>
+            </tr>
+            <tr>
+                <td><h5>17:00 - 17:15</h5></td>
+                <td>
+                    <h4>Short break for discussions, drinks, bear and snacks.</h4>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><h5>17:15 - 17:45</h5></td>
+                <td>
+                    <h4>Yin-Yang: Transparent Deep Embedding of DSLs <img class="flag" src="../img/british-flag.png">
+                    </h4>
+
+                    <p>
+                        We present Yin-Yang, a macro library for DSL embedding that enables convenient DSL programming,
+                        simple DSL
+                        design, and high-performance. A DSL author needs to provide both a shallow and a deep embedding
+                        of a DSL.
+                        The shallow embedding is used for a user-friendly interface, fast prototyping, and easy
+                        debugging. In
+                        production, when performance is of essence, Yin-Yang transparently and reliably transforms
+                        shallow DSL
+                        programs to fast deep DSL programs.
+                    </p>
+
+                    <p>
+                        The DSL design is simplified through a compiler agnostic interface and language virtualization.
+                        Since the
+                        DSL internals are compiler agnostic the domain-specific analysis and compilation can be
+                        reflectively
+                        executed at compile time, or at run time. In the talk we will demonstrate how we used Yin-Yang
+                        to provide a
+                        simple interface for the Scala Language-Integrated Connection Kit (Slick).
+                    </p>
+
+                    <p>
+                        <a href="../data/Yin-Yang.pdf" target="_blank">Slides</a> from presentation.
+                    </p>
+
+                </td>
+                <td><h5>Vojin&nbsp;Jovanovic</h5></td>
+            </tr>
+            <tr>
+                <td><h5>17:45 - 18:15</h5></td>
+                <td>
+                    <h4>How Scala made my tests more meaningful</h4>
+
+                    <p>
+                        Slides from presentation: <a href="../data/scala-testing.pdf" target="_blank">PDF</a>,
+                        <a href="https://speakerdeck.com/piotrga/how-scala-made-my-tests-more-meaningful"
+                           target="_blank">online</a>.
+                    </p>
+                </td>
+                <td><h5>Piotr&nbsp;Gabryanczyk</h5></td>
+            </tr>
+            <tr>
+                <td><h5>18:30 +</h5></td>
+                <td>
+                    <h4>
+                        Discussions, networking, moving to the pub.
+                    </h4>
+
+                    <p>
+                        Dodatkowy czas na dyskusje na interesujące tematy czy wymianę pomysłów.
+                    </p>
+
+                    <p class="expandable">
+                        <img class="flag" src="../img/british-flag.png">
+                        More time to discuss interesting topics or exchange ideas. We will also move to some pub or pub
+                        garden outside to have some beer.
+                    </p>
+                </td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div id=prelegents class="span12">
+    <div class="inside">
+        <h2>Prelegenci</h2>
+    </div>
+
+    <div class="row">
+        <div class="span6 prelegent big">
+            <div class="thumbnail">
+                <img class="icon" src="../img/avatars/grzegorz-kossakowski.png">
+
+                <div class="caption">
+                    <h3>Grzegorz Kossakowski</h3>
+                    <h6 class="company">Typesafe</h6>
+
+                    <p>
+                        Grzegorz Kossakowski is a Scala compiler and tools hacker at Typesafe. A former Google Intern,
+                        Grzegorz
+                        worked on the <a href="http://scalagwt.github.io/" target="_blank">Scala+GWT</a> project and
+                        internal
+                        Android tools. Grzegorz holds a M.S. in Computer Science from
+                        the University of Warsaw and completed his master thesis under Martin Odersky through EPFL. A
+                        passionate
+                        Scala enthusiast, Grzegorz devotes his time at Typesafe to improving Scala compiler performance,
+                        build tool
+                        integration and Java interoperability. During Scala Days 2012 in London, Grzegorz presented his
+                        latest
+                        progress on Scala+GWT project where he showed a large demo written in Scala and compiled to
+                        Javascript.
+                    </p>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="span6 prelegent big">
+            <div class="thumbnail">
+                <img class="icon" src="../img/avatars/vojin-jovanovic.png">
+
+                <div class="caption">
+                    <h3>Vojin Jovanovic</h3>
+                    <h6 class="company">EPFL</h6>
+
+                    <p>
+                        A third year PhD student working on high-performance embedded DSLs in the
+                        <a href="http://lamp.epfl.ch/" target="_blank">LAMP</a> laboratory at
+                        <a href="http://www.epfl.ch/" target="_blank">EPFL</a>. He co-designed
+                        <a href="http://infoscience.epfl.ch/record/181673/files/paper.pdf" target="_blank">Jet</a>, a
+                        Scala embedded
+                        DSL for big-data processing, executable on both Hadoop and Spark. He developed a loop fusion
+                        transformation,
+                        one of the core optimizations in the
+                        <a href="http://scala-lms.github.io/" target="_blank">LMS</a> framework. His
+                        current work focuses on DSL embedding with Scala macros and the cost estimation of annotated
+                        Scala code.
+                        Before his PhD, he worked as a Java Enterprise developer and a team leader on the Taleo Business
+                        Edition
+                        (TBE) project. Besides producing large amounts of everyday SQL, JSP, and Javascript, he worked
+                        on cache
+                        re-balancing algorithms, persistent message queuing, and the TBE search engine.
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span6 prelegent big">
+            <div class="thumbnail">
+                <img class="icon" src="../img/avatars/piotr-gabryanczyk.png">
+
+                <div class="caption">
+                    <h3>Piotr Gabryanczyk</h3>
+                    <h6 class="company">Zeebox</h6>
+
+                    <p>
+                        Piotr has been a software engineer for over 14 years. He is a Scala practitioner and Akka
+                        contributor and
+                        author of <a href="http://github.com/piotrga/async-dynamo" target="_blank">async-dynamo</a> -
+                        Akka based
+                        Scala Amazon Dynamo DB client. Piotr helped organisations such as Bank of America, JP Morgan,
+                        Barclays
+                        Capital to build their distributed systems. He is currently shaping the future of TV at Zeebox.
+                        For more
+                        information about Piotr check out his blog at
+                        <a href="http://blog.scala4java.com/" target="_blank">blog.scala4java.com</a>
+                        or follow him on twitter <a href="https://twitter.com/piotrga" target="_blank">@piotrga</a>.
+                    </p>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id=organizers class="span12">
+    <div class="inside">
+        <h2>Organizatorzy</h2>
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            <img class="icon" src="../img/logos/scalacamp-signet-dark-small.png">
+        </div>
+
+        <div class="span10">
+            <p>
+                Kraków Scala User Group - założona przez członków <a href="http://java.pl" target="_blank">JUG</a> oraz
+                pasjonatów z firmy VirtusLab, którzy spotkali się na innym meetupie i postanowili stworzyć grupę
+                skupioną na języku Scala i technologiach na nim opartych. Nasz cel to wymiana doświadczeń z pracy z tym
+                eleganckim językiem. Przy odrobinie wsparcia od TypeSafe i dobrych Traitów ;) grupa planuje wpisać się
+                na stałe w krajobraz IT w Krakowie.<br>
+                Firma <a href="http://virtuslab.com/" target="_blank">
+                <img class="logo-intext" src="../img/logos/virtus-mini.png"></a>
+                sponsoruje powstanie grupy i organizowane wydarzenia.
+            </p>
+
+            <p class="expandable">
+                <img class="flag" src="../img/british-flag.png">
+                Kraków Scala User Group - which has been founded by some JUG members and Scala geeks from VirtusLab,
+                which met on another user groups' meeting and decided join up by creating a Scala focused group
+                themselves. They're motivated to share their love for this elegant language with others. Having a tiny
+                bit of support from TypeSafe and lot’s of good Traits, it’s practically bound to become a steady stream
+                of many new Scala fans!<br>
+                <a href="http://virtuslab.com/" target="_blank">
+                    <img class="logo-intext" src="../img/logos/virtus-mini.png"></a> acts as a founding sponsor of the
+                group and group meetings.
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            <a href="http://www.geecon.org" target="_blank">
+                <img class="icon geecon" src="http://geecon2013.s3.amazonaws.com/125x125.png" alt="GeeCON 2013"/>
+            </a>
+        </div>
+
+        <div class="span10">
+            <p>
+                Tym razem event zorganizowany jest we współpracy z zespołem <a href="http://www.geecon.org/"
+                                                                               target="_blank">GeeCON</a>.
+            </p>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div id=sponsors class="row">
+    <div class="span12">
+        <h3>Sponsorzy</h3>
+        <a href="http://virtuslab.com/" target="_blank">
+            <img class="virtus logo" src="../img/logos/virtus-small.png"></a>
+        </a>
+    </div>
+</div>
+
+</div>
+
+<script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.expander.js"></script>
+<script src="../js/custom.js"></script>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37367845-2']);
+    _gaq.push(['_setDomainName', 'scalacamp.pl']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

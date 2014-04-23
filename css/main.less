@@ -1,0 +1,216 @@
+/**********/
+/* Colors */
+/**********/
+
+@text: #efeeed; /* - (almost) white for text */
+@bg: white;
+@red: #e31819;
+@gradient-start: #5e5e55;
+@gradient-end: #363631;
+@border: #abaa9d;
+
+/***********/
+/* General */
+/***********/
+
+body { font-family: 'Calibri' }
+
+.row {
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.inside {
+	padding: 0 2%;
+	width: 96%;
+	text-align: left;
+}
+
+.flag { max-height: 14px; }
+
+/*******/
+/* Top */
+/*******/
+
+#top {
+	[class*="span"] { min-height: 225px; }
+
+	&.row, .row { margin-bottom: 0; }
+
+	.logo {
+		background-color: @bg;
+		padding: 20px;
+		width: 182px;
+		display: block;
+	}
+
+	.title {
+		background-color: @red;
+		color: @text;
+		padding: 15px;
+		min-height: 120px;
+		position: relative;
+		border-radius: 2px;
+
+		h1 { font-size: 55px; }
+	}
+
+	.subtitle {
+		display: inline-block;
+		font-size: 20px;
+		font-weight: bold;
+		margin: 30px 0 0;
+	}
+
+	/* meetup button */
+	.meetup {
+		position: absolute;
+		right: 10px;
+		bottom: 10px;
+	}
+
+	.logos {
+		background-color: @bg;
+		margin-top: 10px;
+
+		img {
+			margin: 0 17px;
+			max-width: 160px;
+			max-height: 54px;
+			opacity: 0.6;
+
+			&:hover { opacity: 1; }
+		}
+	}
+}
+
+/**********/
+/* Middle */
+/**********/
+.navbar {
+	margin-top: 10px;
+}
+
+.dark.row .span12 {
+	color: @text !important;
+	.gradient(@gradient-start, @gradient-end);
+	margin-bottom: 10px;
+	border-radius: 2px;
+}
+
+.gradient(@start, @end) {
+	background: @end; /* fallback */
+	background-image: -webkit-linear-gradient(@start, @end); /* Safari 5.1+, Chrome 10+ */
+	background-image: -moz-linear-gradient(top, @start, @end); /* FF 3.6+ */
+	background-image: -o-linear-gradient(@start, @end); /* Opera 11.10 */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '@{start}', endColorstr = '@{end}'); /* IE6 & IE7 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='@{start}', endColorstr='@{end}')"; /* IE8+ */
+	background-image: linear-gradient(@start, @end); /* the standard */
+}
+
+.column-short { width: 15%; }
+
+.about {
+	.thumbnail { /* height: 420px; */ }
+
+	.icon {
+		background-color: @bg;
+		height: 132px;
+		border-radius: 1px;
+
+		img {
+			padding: 20px;
+			width: 240px;
+		}
+
+		&.agh img,
+		&.scala img { margin-top: 10px; }
+	}
+
+	.caption { color: @text; }
+}
+
+/* Prelegenci */
+.prelegent {
+	margin-bottom: 10px;
+
+	.caption {
+		width: 220px;
+		float: left;
+		color: @text;
+		padding: 0 9px;
+
+		p {
+			margin: 0;
+			text-align: justify;
+		}
+	}
+
+	.icon {
+		float: left;
+		width: 200px;
+		height: 200px;
+	}
+
+	/* for guys with big bio */
+	&.big  {
+		.caption {
+			width: auto;
+			float: none;
+		}
+		.icon { margin: 10px; }
+	}
+
+	h6, h3 {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	h3 { font-size: 23px; }
+
+	.company { color: @red; }
+}
+
+/* thumbnails for prelegents and info */
+.thumbnail {
+	padding: 0 10px;
+	border: none;
+	box-shadow: none;
+}
+
+/* Organizers */
+#organizers {
+	.icon {
+		max-height: 110px;
+		margin-left: 40px;
+        &.geecon { margin-left: 30px; }
+    }
+	.logo-intext { height: 25px; }
+}
+
+/* materialy */
+.materials {
+	h4 { margin-left: 10px; }
+	ul { margin-right: 10px; }
+}
+
+/**********/
+/* Bottom */
+/**********/
+
+/* Sponsors */
+#sponsors {
+	.span12 { padding-bottom: 20px; }
+
+	[class*="span"] {
+		text-align: center;
+		background-color: @bg;
+	}
+
+	.logo {
+		height: 54px;
+		margin: 0 40px;
+		&.virtus { height: 65px; }
+	}
+}
+
