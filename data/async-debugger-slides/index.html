@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Rethinking the debugger</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/simple-luc.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>Rethinking the debugger</h1>
+          <br/>
+          <p>
+            <a href="http://scalacamp.pl/">ScalaCamp 2014</a>, Krakow<br/>
+            Iulian Dragos, Typesafe Inc.
+          </p>
+        </section>
+
+	<section data-markdown>
+	# Reactive applications
+	
+	- react to events
+	- react to load
+	- react to failure
+	- react to users
+	</section>
+	<section data-markdown>
+	  # Essentially, *async* are non-blocking
+	</section>
+	
+        <section>
+	<h1>Async programs</h1>
+
+        <blockquote class="fragment">Different parts of the program are executed in different logical threads</blockquote>
+        <blockquote class="fragment">.. and the programmer must ensure correct coordination and communication between parts</blockquote>
+        </section>
+
+        <section data-markdown>
+          ## Concurrency abstractions
+
+          * Threads and locks are replaced by higher-level abstractions
+
+            - **Futures** (delayed computation)
+            - **Actors** (message passing)
+            - Parallel collections (implicit parallelism)
+        </section>
+
+        <section data-markdown>
+          # Futures
+
+          A future is a proxy for a value not-yet computed, whose
+          computation happens on a **different** (logical) thread
+
+          ```scala
+          val fTweets = future { 
+            getAllTweets(user) 
+          }
+
+          // also a future
+          val nrOfTweets = fTweets.map(ts => ts.size)
+
+          nrOfTweets onSuccess { println }
+          ```
+        </section>
+
+        <section data-markdown>
+          # How do we debug such programs?
+        </section>
+
+        <section data-markdown>
+        # Debugging
+
+        - go from (undesirable) effects **back** to causes
+        - attempt a fix
+        - rinse and repeat (go **forward**)
+
+        </section>
+
+	<section data-markdown>
+	  # Going back in time
+	</section>
+
+        <section data-markdown>
+        ## Call stack?
+
+        ```
+        java.lang.Exception
+          at test.FuturesTest$$anonfun$simpleUse$1$$anonfun$2$$anonfun$apply$1.apply$mcI$sp(FuturesTest.scala:27)
+          at test.FuturesTest$$anonfun$simpleUse$1$$anonfun$2$$anonfun$apply$1.apply(FuturesTest.scala:25)
+          at test.FuturesTest$$anonfun$simpleUse$1$$anonfun$2$$anonfun$apply$1.apply(FuturesTest.scala:25)
+          at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24)
+          at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24)
+          at scala.concurrent.impl.ExecutionContextImpl$$anon$3.exec(ExecutionContextImpl.scala:107)
+          at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+          at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+          at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+          at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+      ```
+        </section>
+
+        <section>
+          <h2>Actors, futures, parallel collections</h2>
+
+          <h3>use a thread-pool for executing their computations</h3>
+
+          <ul>
+            <li class="fragment">Each future (or actor) may execute on a different thread</li>
+            <li class="fragment">The <strong>call-stack</strong> and the <strong>control-flow</strong> are no longer the same</li>
+          </ul>
+        </section>
+
+        <section data-markdown>
+          # Let's fix it
+        </section>
+
+<!--         <section>
+          <h2>Forget the call-stack</h2>
+
+          <p class="fragment">(your program already did)</p>
+        </section>
+ -->
+
+
+         <section data-markdown>
+        # Debuggers
+
+        - Event-based (log/trace based)
+          - record during execution
+          - *post-mortem* debugging
+
+        - Breakpoint-based
+          - interact with a *live* sytem
+          - the standard for sequential programs
+        </section>
+
+	  <section data-markdown>
+	  ![call-stack](img/async-stack.png)
+	  </section>
+	  
+ 
+        <section data-markdown>
+          ## Improving live debuggers
+
+          - Automatically collect call-stacks at **points-of-interest**
+            - future creation/chaining
+            - actor message send
+          - .. *all* data on the stack frame
+            - location, local variable values
+        </section>
+
+        <section data-markdown>
+          ## Improving live debuggers
+
+          - attach it to one or more relevant objects
+            - future and future body
+            - message object
+          - Present them in addition to existing information when a breakpoint is hit
+        </section>
+
+        <section data-markdown>
+          ![eclipse](img/eclipse-screenshot.png)
+        </section>
+
+        <section>
+          <h1>Implementation</h1>
+          
+          <ul>
+            <li>automatically add a breakpoint at POIs (method entry point)</li>
+            <li class="fragment">when a breakpoint is hit</li>
+            <ul>
+              <li class="fragment">collect stack-data</li>
+              <li class="fragment">associate data with object of interest (usually the argument to the POI)</li>
+              <li class="fragment">resume program</li>
+            </ul>
+          </ul>  
+        </section>
+
+        <section data-markdown>
+          # Example
+
+          For an actor, the POI is a message send:
+
+          ```scala
+          override def !(msg: Any) {
+            send(msg, Actor.rawSelf(scheduler))
+          }```
+
+          - `akka.actor.RepointableActorRef.$bang`
+          - the carrier is `msg`
+        </section>
+
+        <section data-markdown>
+        ## Overhead
+
+        ![timings](img/async-debugging-timings.png)
+        </section>
+
+        <section data-markdown>
+          # Other uses
+
+          - code that reifies continuations
+            - Play *iteratees*
+          - parallel collections
+          - data-flow debugging
+        </section>
+
+	<section data-markdown>
+          # Demo!
+        </section>
+
+	<section data-markdown>
+	  # Going forward
+	</section>
+
+	<section data-markdown>
+	  # Step Into?
+
+	 Actors communicate by sending messages
+
+	  like method calls
+	  
+	 ## *but they are asynchronous*
+	</section>
+
+	  <section data-markdown>
+	  # Step Message
+
+	  * Let's add the ability to step-with-message
+	  * stop the program when the **next message sent** by this
+	  actor is processed
+	    - this can happen in a **different** thread
+	    - other messages might be exchanged in the meantime
+	  by these two actors
+	  </section>
+
+	  <section data-markdown>
+	   # Implementation notes
+
+	   * the next message sent from this actor is saved
+	   * each dispatched message is compared with the *target*
+	   * when found, do one more step-into and **break**
+	  </section>
+	  
+        <section data-markdown>
+        # What else?
+	</section>
+
+	<section data-markdown>
+        # Custom info
+          * sender, supervisor, children
+          * actor mailbox
+          * success/failure handlers
+	</section>
+
+	<section data-markdown>
+        # Collect only some *traces*
+          - user-defined locations (packages, classes)
+          - infer locations based on where breakpoints are set
+          - collect only some *frames* (exclude scala.* frames)
+        </section>
+
+	<section data-markdown>
+	  # Summary
+
+	  * call-stack -> async stack
+	  * step-into -> step-with-message
+       </section>
+
+	<section data-markdown>
+	  # Thank you!
+	</section>
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        rollingLinks: false,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+        transitionSpeed: 'fast',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+    <style>
+    .reveal .controls div.slide-number {
+      width: 25px;
+      left: 28px;
+      top: 33px;
+      text-align: center;
+      vertical-align: middle;
+      font-size: .5em;
+      font-weight: bold;
+      opacity: 1;
+    }
+    </style>
+
+    <script>
+    function currentSlideNumber(event) {
+      var formattedStr;
+      if (event.indexh === 0) {
+       return '';
+      }
+      formattedStr = event.indexh;
+      if (event.indexv) {
+       formattedStr += '/' + event.indexv;
+      }
+      return formattedStr;
+    }
+
+    function setSlideNumber() {
+      var e = document.querySelector('.slide-number');
+      if (e != null) {
+        e.innerText = currentSlideNumber(event);
+      }
+    }
+
+
+    Reveal.addEventListener('slidechanged', setSlideNumber);
+
+    Reveal.addEventListener( 'ready', function( event ) {
+     var slideNumberDiv = document.createElement('div');
+     slideNumberDiv.classList.add('slide-number');
+     document.querySelector('.controls').appendChild(slideNumberDiv);
+     setSlideNumber();
+    });
+
+    </script>
+
+  </body>
+</html>
