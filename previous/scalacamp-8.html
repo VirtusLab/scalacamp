@@ -51,9 +51,9 @@
 		<span class="brand">Edycje</span>
 		<ul class="nav">
 			<li><a href="../index.html">Bieżący event</a></li>
-			<li><a href="scalacamp-8.html">ScalaCamp #8 - 12.05.2015</a></li>
+			<li class="active"><a href="#">ScalaCamp #8 - 12.05.2015</a></li>
 			<li><a href="scalacamp-7.html">ScalaCamp #7 - 24.09.2014</a></li>
-			<li class="active"><a href="#">ScalaCamp #6 - 24.07.2014</a></li>
+			<li><a href="scalacamp-6.html">ScalaCamp #6 - 24.07.2014</a></li>
 			<li><a href="scalacamp-5.html">ScalaCamp #5 - 06.05.2014</a></li>
 			<li><a href="scalacamp-4.html">ScalaCamp #4 - 28.11.2013</a></li>
 			<li><a href="scalacamp-3.html">ScalaCamp #3 - 18.05.2013</a></li>
@@ -65,10 +65,9 @@
 </div>
 
 <div class="dark row">
-
 	<div id=agenda class="span12">
 		<div class="inside">
-			<h2>Agenda - ScalaCamp #6, 23.07.2014</h2>
+			<h2>Agenda - ScalaCamp #8, 12.05.2015</h2>
 			<table class="table">
 				<thead>
 				<tr>
@@ -79,81 +78,114 @@
 				</thead>
 				<tbody>
 				<tr>
-					<td class="column-short"><h5>19:00 - 19:45</h5></td>
+					<td class="column-short"><h5>19:00 - 20:00</h5></td>
 					<td>
-						<h4>Akka-persistence <img class="flag" src="../img/british-flag.png"></h4>
+						<h4>The Road to Akka Cluster, and Beyond... <img class="flag" src="../img/british-flag.png"></h4>
 
 						<p>
-							Event sourcing and Domain Driven Design are techniques that allow you to model your business
-							more truthfully - by expressing it via commands, events and aggregates etc. The new
-							akka-persistence module, included in Akka since the 2.3 release is aimed at easing
-							implementing event sourced applications. Turns out the actor model and events as messages
-							fit in here perfectly. During this session we'll discover how to build reactive, event
-							sourcing based apps using the new abstractions provided, and investigate how to implement
-							your own journals to back these persistent event sourced actors.
+							Today, the skills of writing distributed applications is both more important and at the same
+							time more challenging than ever. With the advent of mobile devices, NoSQL databases, cloud
+							services etc. you most likely already have a distributed system at your hands—whether you
+							like it or not. Distributed computing is the new norm.
+
+							In this talk we will take you on a journey across the distributed computing landscape. We
+							will start with walking through some of the early work in computer architecture—setting the
+							stage for what we are doing today. Then continue through distributed computing—discussing
+							things like important Impossibility Theorems (FLP, CAP), Consensus Protocols (Raft, HAT,
+							Epidemic Gossip etc.), Failure Detection (Accrual, Byzantine etc.), up to today’s very
+							exciting research in the field, like ACID 2.0, Disorderly Programming (CRDTs, CALM etc).
+
+							Along the way we will discuss the decisions and trade-offs that were made when creating Akka
+							Cluster, its theoretical foundation, why it is designed the way it is and what the future
+							holds.
 						</p>
 
 						<p>
 							<a href="http://typesafe.com/" target="_blank"><b>Typesafe</b></a>
 						</p>
-
-						<p>
-							<a href="../data/akka-persistence-scalacamp.pdf" target="_blank">Slides from both presentations.</a>
+						
+						<p><a href="http://www.slideshare.net/jboner/the-road-to-akka-cluster-and-beyond" 							target="_blank">Slides</a> from presentation. 							<a href="https://www.youtube.com/embed/tSEdh4-iCUc" target="_blank">Video</a> on Youtube.
 						</p>
 					</td>
 					<td class="column-short">
-						<h5>Konrad&nbsp;Malawski</h5>
+						<h5>Jonas Bonér</h5>
 					</td>
 				</tr>
 				<tr>
-					<td><h5>19:45 - 20:00</h5></td>
+					<td><h5>20:00 - 20:10</h5></td>
 					<td>
-						<h4>Networking drinks, snacks.</h4>
+						<h4>Przerwa / Break</h4>
 					</td>
 					<td></td>
 				</tr>
 				<tr>
-					<td><h5>20:00 - 20:30</h5></td>
+					<td><h5>20:10 - 20:30</h5></td>
 					<td>
-						<h4>High availability with Akka Cluster and Akka Persistence
+						<h4>Using Lambdas for Scala code debugging - not so trivial to support in tooling
 							<img class="flag" src="../img/british-flag.png"></h4>
 
 						<p>
-							In this session we will demonstrate how to turn a simple service from running on a single
-							server to running on an Akka cluster. Thereby we’ll discover various advanced Akka features
-							and patterns, e.g. spray (or Akka HTTP), Akka Cluster and Akka Persistence.
+							Lambdas are already a well-known concept in general. Among other pros they can be very
+							useful for debugging Scala code. Their implementation on JVM is not so trivial, though. If
+							we would like to support lambdas within conditional breakpoints or for expression evaluation
+							the complexity becomes even greater.
+
+							I would like show how the implementation of the Expression Evaluator for Scala IDE solves
+							these problems. I will also show some examples of Lambdas usage for debugging.
+
+							I promise you will see remote string-encoded jdi-based class loading and scala features,
+							like: toolbox, AST and even Dynamic trait, put to good use
 						</p>
 
 						<p>
-							<a href="http://typesafe.com/"><b>Typesafe</b></a>
+							<a href="http://virtuslab.com/" target="_blank"><b>VirtusLab</b></a>
+						</p>
+						<p><a href="https://youtu.be/_AUZP6Qx8o0" target="_blank">Video</a> on Youtube.
 						</p>
 					</td>
-					<td class="column-short">
-						<h5><strike>Heiko&nbsp;Seeberger</strike></h5><h5>Konrad&nbsp;Malawski</h5>
-					</td>
+					<td class="column-short"><h5>Krzysztof&nbsp;Romanowski</h5></td>
 				</tr>
 				<tr>
-					<td><h5>20:30 - ...</h5></td>
+					<td><h5>20:40 - 20:50</h5></td>
 					<td>
-						<h4>Scalac
-							<img class="flag" src="../img/british-flag.png"></h4>
+						<h4>Przerwa / Break</h4>
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><h5>20:50 - 21:20</h5></td>
+					<td>
+						<h4>Friendly Apache Camel in Scala</h4>
 
 						<p>
-							Celebration of Akka's 5th birthday
+							Java world frameworks can be realy awful to use in Scala. A lot of mutability and "new" usages as examples. Java has also poorer type system when compared to Scala. As a result compailer will not be your ally.
+							Apache Camel is a Java-world framework. This is made for message rule based routing. It also provides nice DSL. But when you want to use it in a Scala way for example without mutability it could be realy painful.
+							There is project which provides DSL to Scala but is far from perfection. It is also possible to use Camel with Akka. Both solutins are not free from drawbags.
+
+							During presentation I will show our attempt to provide Camel DSL in Scala. I will discuss why we chose Camel instead of Akka and how it works for us. Because this soluton is fresh and different from Scala Camel DSL I will highlight what is still missing.
 						</p>
 
 						<p>
-							<a href="http://akka.io/"><b>Akka</b></a>
+							<a href="http://virtuslab.com/" target="_blank"><b>VirtusLab</b></a>
+						</p>
+						<p><a href="https://youtu.be/3Aam0w1PUCM" target="_blank">Video</a> on Youtube.
 						</p>
 					</td>
-					<td class="column-short"><h5></h5></td>
+					<td class="column-short"><h5>Bartosz Kowalik</h5></td>
 				</tr>
+				<tr>
+					<td><h5>21:20 - ...</h5></td>
+					<td>
+						<h4>Networking</h4>
+					</td>
+					<td></td>
+				</tr>
+
 
 				</tbody>
 			</table>
 		</div>
 	</div>
-
 </div>
 
 <div class="dark row">
@@ -165,17 +197,19 @@
 		<div class="row">
 			<div class="span6 prelegent big">
 				<div class="thumbnail">
-					<img class="icon" src="../img/avatars/konrad.png">
+					<img class="icon" src="../img/avatars/jonas-boner.jpg">
 
 					<div class="caption">
-						<h3>Konrad Malawski</h3>
+						<h3>Jonas Bonér</h3>
 						<h6 class="company">Typesafe</h6>
 
 						<p>
-							Konrad is a late-night passionate dev living by the motto "Life is Study!". His favourite
-							discussion topics range from distributed systems and type systems to capybaras. In those
-							rare times he's not coding, he spreads the joy of computer science, through helping local
-							user groups and whitepaper reading clubs. hAkker @ Typesafe
+							Co-founder and CTO of <a href="http://www.typesafe.com/" target="_blank">Typesafe</a>.
+							He is the inventor of the <a href="http://akka.io/" target="_blank">Akka</a> project,
+							co-author of the <a href="http://www.reactivemanifesto.org/" target="_blank">Reactive
+							Manifesto</a>
+							and a <a href="https://java.net/website/java-champions/bios.html#Boner" target="_blank">Java
+							Champion</a>.
 						</p>
 
 					</div>
@@ -184,22 +218,33 @@
 			</div>
 			<div class="span6 prelegent big">
 				<div class="thumbnail">
-					<img class="icon" src="../img/avatars/heiko-seeberger.png">
+					<img class="icon" src="../img/avatars/krzysiek.jpg">
 
 					<div class="caption">
-						<h3>Heiko Seeberger</h3>
-						<h6 class="company">Typesafe</h6>
+						<h3>Krzysztof Romanowski</h3>
+						<h6 class="company">VirtusLab</h6>
 
 						<p>
-							Heiko Seeberger is Akka Engineer for Typesafe. He has been a Scala
-							enthusiast ever since he came to know this beautiful language in 2008. Heiko has more than
-							15 years of professional expertise in consulting and software development on the Java
-							platform, actively contributes to Scala community projects and regularly shares his
-							expertise in articles and talks. He is also the author of the German Scala book
-							"Durchstarten mit Scala". Heiko <a href="http://twitter.com/hseeberger" target="_blank">tweets</a>
-							and <a href="http://heikoseeberger.de" target="_blank">blogs</a>.
+							Scala Developer at VirtusLab, passionate about debugging staff and quite a good biker too.
 						</p>
 
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span6 prelegent big">
+				<div class="thumbnail">
+					<img class="icon" src="../img/avatars/bartosz-kowalik.jpg">
+
+					<div class="caption">
+						<h3>Bartosz Kowalik</h3>
+						<h6 class="company">VirtusLab</h6>
+
+						<p>
+							Scala Developer at VirtusLab.
+						</p>
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -256,14 +301,14 @@
 </div>
 
 <div id=sponsors class="row">
-    <div class="span12">
-        <h3>Sponsorzy</h3>
+	<div class="span12">
+		<h3>Sponsorzy</h3>
 
-        <a href="http://virtuslab.com/" target="_blank">
-            <img class="virtus logo" src="../img/logos/virtus-small.png"></a>
-        <a href="http://typesafe.com" target="_blank">
-            <img class="logo" src="../img/logos/typesafe.png"></a>
-    </div>
+		<a href="http://virtuslab.com/" target="_blank">
+			<img class="virtus logo" src="../img/logos/virtus-small.png"></a>
+		<a href="http://geecon.org" target="_blank">
+			<img class="logo" src="../img/logos/geecon.png"></a>
+	</div>
 </div>
 <div id=footer>
 	(c) VirtusLab 2015, made by <a href="https://github.com/Kwestor" target="_blank">Jerzy Müller</a>
