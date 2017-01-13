@@ -211,7 +211,7 @@
 		<div class="inside">
 			<h2>Agenda - ScalaCamp #10, TBA</h2>
 			<h5>Informacje o 10tym ScalaCampie już wkrótce!</h5>
-			<!--<table class="table">
+			<table class="table">
 				<thead>
 				<tr>
 					<th>Godzina</th>
@@ -221,55 +221,74 @@
 				</thead>
 				<tbody>
 				<tr>
-					<td class="column-short"><h5>19:00 - 20:00</h5></td>
+					<td class="column-short"><h5>19:00 - 19:45</h5></td>
 					<td>
-						<h4>When things go south <img class="flag" src="img/british-flag.png"></h4>
+						<h4>Chaos Engineering and Runtime Monitoring of Distributed Reactive Applications<img class="flag" src="img/british-flag.png"></h4>
 
-						<p>							
-Spark Streaming is a great solution for ingesting data as it arrives, batching it and performing analysis and transformations using the Spark core execution engine. Continuous operation brings about new challenges, like how to ensure no data loss in the face of failures or how to deal with spikes in incoming data. In this presentation I will discuss various fault tolerance and back pressure strategies implemented in Spark streaming.
-						</p>
+						<p>Distributed systems are difficult to build and test, so it is important that you identify weaknesses before they manifest in system-wide, aberrant behaviours. Tools such as docker and docker-compose standardise the process of defining system components and deploying them. However, current testing frameworks for these environments are often inadequate for performing end-to-end testing or Byzantine fault injection. 
+During this talk, you will explore the docker-compose-testkit. This is an open-source asynchronous testing framework (implemented in Scala) that allows docker containers to be instrumented (instrumentation sensors are modelled by Observables), deployed (e.g. by docker-compose) and then fault injected (fault injection points are modelled by Observers). Abstraction layers allow the same testing code to target both local environments and cloud environments (e.g. AWS, DC/OS, etc.). 
+<br>A Scala DSL is introduced to define composable and modular state machines that allow one to both monitor these sensors at runtime and to match against expected outcomes. Using for-comprehensions, complex testing scenarios may be defined that allow for warm-up and fault injection.</p>
 
 						<p>
-							<a href="http://lightbend.com/" target="_blank"><b>Lightbend</b></a>							
+							<a href="http://www.cakesolutions.net/" target="_blank"><b>Cake Solutions</b></a>							
 						</p>
-						<p>
-							<a href="data/WhenThingsGoesSouth.pdf" target="_blank">Slides</a> from presentation. 							
-						</p>
+						
 
 
 					</td>
 					<td class="column-short">
-						<h5>Nilanjan Raychaudhuri</h5>
+						<h5>Carl Pulley</h5>
 					</td>
 				</tr>
 				<tr>
-					<td><h5>20:00 - 20:10</h5></td>
+					<td><h5>19:45 - 19:50</h5></td>
 					<td>
 						<h4>Przerwa / Break</h4>
 					</td>
 					<td></td>
 				</tr>
 				<tr>
-					<td><h5>20:10 - 20:50</h5></td>
+					<td><h5>19:50 - 20:35</h5></td>
 					<td>
-						<h4>Let's talk about Scala IDE - new version is coming
-							<img class="flag" src="img/british-flag.png"></h4>
+						<h4>Let’s speed up our compilation. Live profiling of zinc application<img class="flag" src="img/british-flag.png"></h4>
 
-						<p>
-						Scala IDE, yes this is Eclipse here. But before you decide to stop reading the rest of this short note think about Reactive buzzword. Scala IDE is going to deliver a new kind of programming tools quite suitable for developing reactive applications. No more breakpoints to place when message is received. No more tedious tracing of message history. Let's just debug it! Still not grabbed? What about macros compiling in the same project? Now Scala IDE gives a possibility to compile projects and macros in one click.
-
-						About these features and more beyond the time horizon is this talk [Yoda said to his padawan].
-						</p>
+						<p>In this talk I want to show you whole process of improving performance of scala-compiler related code.
+<br>
+We will start with defining our problem, then we will try to apply various techniques to find roots of problem to finally fix them.
+<br>
+To spice things up our code will live inside scala compiler.</p>
 
 						<p>
 							<a href="http://virtuslab.com/" target="_blank"><b>VirtusLab</b></a>
 						</p>
 					</td>
-					<td class="column-short"><h5>Wiesław Popielarski</h5></td>
+					<td class="column-short"><h5>Krzysztof Romanowski</h5></td>
 				</tr>
-			
+
 				<tr>
-					<td><h5>20:50 - ...</h5></td>
+					<td><h5>20:35 - 20:40</h5></td>
+					<td>
+						<h4>Przerwa / Break</h4>
+					</td>
+					<td></td>
+				</tr>
+  <tr>
+					<td><h5>20:40 - 21:25</h5></td>
+					<td>
+						<h4>Dynamic load balancing with Akka Streams<img class="flag" src="img/british-flag.png"></h4>
+
+						<p>There are a lot of talks about Microservices Architecture which describes synchronous communication (REST API) as anti-pattern, but sometimes you need to live with this approach in your system - probably you need to make a group of services to communicate with each other or you are just building an application gateway. If you would like to have this resilient, you need to scale out your services and add load balancer a the top. In this talk I would like to present how to implement dynamic HTTP load balancer using Akka Streams and Akka HTTP.  
+</p>
+
+						<p>
+							<a href="https://codeheroes.io/" target="_blank"><b>Codeheroes </b></a>
+						</p>
+					</td>
+					<td class="column-short"><h5>Maciej Ciolek</h5></td>
+				</tr>
+  
+				<tr>
+					<td><h5>21:25 - ...</h5></td>
 					<td>
 						<h4>Networking</h4>
 					</td>
@@ -279,7 +298,7 @@ Spark Streaming is a great solution for ingesting data as it arrives, batching i
 
 				</tbody>
 			</table>
-			-->
+			
 		</div>
 	</div>
 </div>
